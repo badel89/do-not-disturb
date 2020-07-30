@@ -10,13 +10,17 @@
     <script type="text/javascript">
         // This will automatically call server api to see what should be displayed.
         function init() {
+            setInterval(getStatus,5000);
+        }
+
+        function getStatus() {
             $.ajax({
                 url: "/api/getStatus",
                 async: true
             })
-            .done(function(res) {
-                document.getElementById('main-content').innerHTML = res  ;
-            });
+                .done(function (res) {
+                    document.getElementById('main-content').innerHTML = res;
+                });
         }
     </script>
 </head>
