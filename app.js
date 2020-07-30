@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 const port = 3333;
 
-var statusRouter = require("./routes/statusRouter");
+var getStatusRouter = require("./routes/getStatusRouter");
+var setStatusRouter = require("./routes/setStatusRouter");
 
 var app = express();
 var status = "Free";
@@ -18,7 +19,9 @@ app.get('/', function(req, res) {
     res.sendFile("./index.html");
 });
 
-app.use("/api/getStatus", statusRouter);
+app.use("/api/getStatus", getStatusRouter);
+app.use("/api/setStatus", setStatusRouter);
+
 
 app.listen(port, function() {
     console.log("Listening to port: " + port);
