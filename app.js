@@ -1,10 +1,12 @@
-var express = require("express");
-var path = require("path");
+const express = require("express");
+const path = require("path");
 const port = 3333;
 
-var statusRouter = require("./routes/statusRouter")
+var statusRouter = require("./routes/statusRouter");
 
 var app = express();
+var status = "Free";
+app.set("status", status);
 
 app.set("views", path.join(__dirname, "views"));
 
