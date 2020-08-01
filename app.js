@@ -8,7 +8,7 @@ var setStatusRouter = require("./routes/setStatusRouter");
 var app = express();
 
 var status = "Free";
-var color = "#32CD32";
+var color = "#33ff33";
 app.set("status", status);
 app.set("color", color);
 
