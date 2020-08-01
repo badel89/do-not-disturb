@@ -4,32 +4,38 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <title>do not disturb</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
-    
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"
         integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd"
         crossorigin="anonymous"></script>
-    
+
     <script type="text/javascript">
-        $(document).on("click", ".setFree", function() {
+        $(document).on("click", ".setFree", function () {
             $.ajax({
                 type: "POST",
                 url: "/api/setStatus",
                 async: true,
-                data: JSON.stringify({"status":"Free"}),
+                data: JSON.stringify({
+                    "status": "Free",
+                    "color": "#32CD32"
+                }),
                 contentType: "application/json"
             });
         });
 
-        $(document).on("click", ".setBusy", function() {
+        $(document).on("click", ".setBusy", function () {
             $.ajax({
                 type: "POST",
                 url: "/api/setStatus",
                 async: true,
-                data: JSON.stringify({"status":"Busy"}),
+                data: JSON.stringify({
+                    "status": "Busy",
+                    "color": "#FF0000"
+                }),
                 contentType: "application/json"
             });
         });
