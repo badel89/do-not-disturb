@@ -22,8 +22,8 @@
                 async: true
             })
                 .done(function (res) {
+                    // res = {status: "status", {color: "color"}}
                     res = JSON.parse(res);
-                    console.log(res);
                     document.getElementById('main-content').innerHTML = res.status;
                     document.getElementById('main-content').style = "background-color: " + res.color;
                 });
