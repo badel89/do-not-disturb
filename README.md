@@ -25,8 +25,10 @@ npm start
 2) Click on one of the buttons and wait a few seconds to see change appear on [localhost:3333](http://localhost:3333)
 
 ## Devices supported
-Any device with a web browser should be able to support this. Just make sure you are on the same network as the computer that is running the project. On the other device, just navigate to the the **<private_ip_address>**:3333 of the computer running the project.
->If you do not know how to get your private ip address, Google: `how to get my private ip address on {OS}`
+Any device with a web browser should be able to support this. Just make sure you are on the same network as the computer that is running the project. On the other device, just navigate to the the **<private_ip_address>:3333** of the computer running the project.
+>If you do not know how to get your private ip address, Google: `how to get my private ip address on <OS>`
 
 ## Examples
-
+![pi_running_do-not-disturb](https://i.imgur.com/LKA1bXm.jpg)
+>This is a raspberry pi w/ pi display and a cheap case from Amazon.
+![phone_running_do-not-disturb](https://i.imgur.com/1xsUCOs.jpg)
