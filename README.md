@@ -17,12 +17,12 @@ npm install
 ```bash
 npm start
 ```
-5) On your web browser, navigate to localhost:3333[localhost:3333]
+5) On your web browser, navigate to [localhost:3333](localhost:3333)
 >In order to get other devices to access this, they will need to be connected to the same network and navigate to your <private_ip_address>:3333
 
 ## Changing status
-1) On your web browser, navigate to localhost:3333/status.html[localhost:3333/status.html]
-2) Click on one of the buttons and wait a few seconds to see change appear on localhost:3333[localhost:3333]
+1) On your web browser, navigate to [localhost:3333/status.html](localhost:3333/status.html)
+2) Click on one of the buttons and wait a few seconds to see change appear on [localhost:3333](localhost:3333)
 
 ## Devices supported
 Any device with a web browser should be able to support this. Just make sure you are on the same network as the computer that is running the project. On the other device, just navigate to the the private ip address:3333 of the computer running the project.
