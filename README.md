@@ -29,7 +29,7 @@ Any device with a web browser should be able to support this. Just make sure you
 >If you do not know how to get your private ip address, Google: `how to get my private ip address on <OS>`
 
 ## Examples
-<img src="https://i.imgur.com/LKA1bXm.jpg" alt="pi running do-not-disturb" width="250px">
->This is a raspberry pi w/ pi display and a cheap case from Amazon.
+This is a Raspberry Pi w/ a Pi display and a cheap case from Amazon
+<img src="https://i.imgur.com/LKA1bXm.jpg" alt="pi running do-not-disturb" width="250px"/>
 
-<img src="https://i.imgur.com/1xsUCOs.jpg" alt="phone running do-not-disturb" width="250px">
+<img src="https://i.imgur.com/1xsUCOs.jpg" alt="phone running do-not-disturb" width="250px"/>
