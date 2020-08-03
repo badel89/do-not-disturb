@@ -1,7 +1,7 @@
 # do-not-disturb
 
 ## Why this exists
-Due to the large increase of working from home/online education. It can be hard to communicate with the people that you live with when you are busy or free. This project aims to fix that. This allows you to display messages on other devices on the same network. See examples below.
+Due to the large increase of working from home/online education. It can be hard to communicate with the people that you live with when you are busy or free. This project aims to fix that. This allows you to display messages on other devices on the same network. Some messages are pre-loaded, but there is full support for custom messages. See examples below.
 
 ## Prerequisites
 - NodeJS
