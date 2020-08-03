@@ -14,7 +14,11 @@
         crossorigin="anonymous"></script>
 
     <script type="text/javascript">
-        // Send POST request to backend asking status to be changed.
+        // Show the modal content for creating a custom status
+        function showCustomModal() {
+            $("#customStatus").modal("show");
+        }
+        // Send POST request to backend asking status to be changed
         $(document).on("click", ".setFree", function () {
             $.ajax({
                 type: "POST",
@@ -27,7 +31,7 @@
                 contentType: "application/json"
             });
         });
-
+        // Send POST request to backend asking status to be changed
         $(document).on("click", ".setBusy", function () {
             $.ajax({
                 type: "POST",
@@ -40,15 +44,56 @@
                 contentType: "application/json"
             });
         });
+
+        // Send POST request.. Custom status
+        $(document).on("click", ".create", function() {
+            let status = document.getElementById("txtStatus").value;
+            let color = document.getElementById("colorPick").value;
+            $.ajax({
+                type: "POST",
+                url: "/api/setStatus",
+                async: true,
+                data: JSON.stringify({
+                    "status": status,
+                    "color": color
+                }),
+                contentType: "application/json"
+            });
+            $("#customStatus").modal("hide");
+        });
+
+
     </script>
 </head>
 
 <body>
     <div id="main-content">
-        <p><button type="button" class="btn btn-primary setFree">Free</button></p>
+        <p><button type="button" class="btn btn-success setFree">Free</button></p>
         <p><button type="button" class="btn btn-danger setBusy">Busy</button></p>
-
+        <p><button type="button" class="btn btn-primary" onclick="showCustomModal()">Custom</button></p>
     </div>
+
+    <!-- Custom status modal content -->
+    <div id="customStatus" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Custom Status</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <!-- Color picker -->
+                    <p> Click to pick a color
+                    <input id="colorPick" type="color" value="#ff3333" /> </p>
+
+                    <!-- Status input -->
+                    <input class="form-control" type="text" autocomplete="off" id="txtStatus" placeholder="Custom Status" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary create">Create</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
 </body>
 
 </html>
