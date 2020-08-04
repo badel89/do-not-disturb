@@ -1,6 +1,8 @@
 // Import required packages
 const express = require("express");
 const path = require("path");
+
+// Set the server port
 const port = 3333;
 
 // Setup required routes
