@@ -12,3 +12,6 @@
   left: 0;
   position: absolute;
 }
+.curStatus {
+  display: inline-block
+}
