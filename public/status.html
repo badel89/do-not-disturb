@@ -4,6 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <title>do not disturb</title>
+
+    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
 
@@ -61,16 +63,34 @@
             });
             $("#customStatus").modal("hide");
         });
+    </script>
+    <script>
+        function init() {
+            getStatus();
+            setInterval(getStatus,2500);
+        }
 
-
+        function getStatus() {
+            $.ajax({
+                url: "/api/getStatus",
+                async: true
+            })
+                .done(function (res) {
+                    // res = {status: "status", {color: "color"}}
+                    res = JSON.parse(res);
+                    document.getElementById('current-status').innerHTML = res.status;
+                    document.getElementById('current-status').style = "background-color: " + res.color;
+                });
+        }
     </script>
 </head>
 
-<body>
+<body onload="init()">
     <div id="main-content">
         <p><button type="button" class="btn btn-success setFree">Free</button></p>
         <p><button type="button" class="btn btn-danger setBusy">Busy</button></p>
         <p><button type="button" class="btn btn-primary" onclick="showCustomModal()">Custom</button></p>
+        <p><div id="current-status" class="curStatus"></div></p>
     </div>
 
     <!-- Custom status modal content -->
