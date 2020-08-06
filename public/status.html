@@ -22,28 +22,36 @@
         }
         // Send POST request to backend asking status to be changed
         $(document).on("click", ".setFree", function () {
+            let statusInfo = JSON.stringify({
+                    "status": "Free",
+                    "color": "#33ff33"
+                });
             $.ajax({
                 type: "POST",
                 url: "/api/setStatus",
                 async: true,
-                data: JSON.stringify({
-                    "status": "Free",
-                    "color": "#33ff33"
-                }),
+                data: statusInfo,
                 contentType: "application/json"
+            })
+            .done(() => {
+                showStatus(statusInfo);
             });
         });
         // Send POST request to backend asking status to be changed
         $(document).on("click", ".setBusy", function () {
+            let statusInfo = JSON.stringify({
+                    "status": "Busy",
+                    "color": "#ff3333"
+                });
             $.ajax({
                 type: "POST",
                 url: "/api/setStatus",
                 async: true,
-                data: JSON.stringify({
-                    "status": "Busy",
-                    "color": "#ff3333"
-                }),
+                data: statusInfo,
                 contentType: "application/json"
+            })
+            .done(()=> {
+                showStatus(statusInfo);
             });
         });
 
@@ -51,41 +59,32 @@
         $(document).on("click", ".create", function() {
             let status = document.getElementById("txtStatus").value;
             let color = document.getElementById("colorPick").value;
+            let statusInfo = JSON.stringify({
+                    "status": status,
+                    "color": color
+                });
             $.ajax({
                 type: "POST",
                 url: "/api/setStatus",
                 async: true,
-                data: JSON.stringify({
-                    "status": status,
-                    "color": color
-                }),
+                data: statusInfo,
                 contentType: "application/json"
-            });
-            $("#customStatus").modal("hide");
-        });
-    </script>
-    <script>
-        function init() {
-            getStatus();
-            setInterval(getStatus,2500);
-        }
-
-        function getStatus() {
-            $.ajax({
-                url: "/api/getStatus",
-                async: true
             })
-                .done(function (res) {
-                    // res = {status: "status", {color: "color"}}
-                    res = JSON.parse(res);
-                    document.getElementById('current-status').innerHTML = res.status;
-                    document.getElementById('current-status').style = "background-color: " + res.color;
-                });
+            .done(() => {
+                showStatus(statusInfo);
+                $("#customStatus").modal("hide");
+            });
+        });
+
+        function showStatus(statusInfo) {
+            statusInfo = JSON.parse(statusInfo);
+            document.getElementById('current-status').innerHTML = statusInfo.status;
+            document.getElementById('current-status').style = "background-color: " + statusInfo.color;
         }
     </script>
 </head>
 
-<body onload="init()">
+<body>
     <div id="main-content">
         <p><button type="button" class="btn btn-success setFree">Free</button></p>
         <p><button type="button" class="btn btn-danger setBusy">Busy</button></p>
