@@ -81,10 +81,23 @@
             document.getElementById('current-status').innerHTML = statusInfo.status;
             document.getElementById('current-status').style = "background-color: " + statusInfo.color;
         }
+
+        function init() {
+            $.ajax({
+                url: "/api/getStatus",
+                async: true
+            })
+                .done(function (res) {
+                    // res = {status: "status", {color: "color"}}
+                    res = JSON.parse(res);
+                    document.getElementById('current-status').innerHTML = res.status;
+                    document.getElementById('current-status').style = "background-color: " + res.color;
+                });
+        }
     </script>
 </head>
 
-<body>
+<body onload="init()">
     <div id="main-content">
         <p><button type="button" class="btn btn-success setFree">Free</button></p>
         <p><button type="button" class="btn btn-danger setBusy">Busy</button></p>
