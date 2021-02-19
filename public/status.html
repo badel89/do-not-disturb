@@ -41,6 +41,23 @@
         $(document).on("click", ".setBusy", function () {
             let statusInfo = JSON.stringify({
                     "status": "Busy",
+                    "color": "#ffd300"
+                });
+            $.ajax({
+                type: "POST",
+                url: "/api/setStatus",
+                async: true,
+                data: statusInfo,
+                contentType: "application/json"
+            })
+            .done(()=> {
+                showStatus(statusInfo);
+            });
+        });
+
+        $(document).on("click", ".setMeeting", function () {
+            let statusInfo = JSON.stringify({
+                    "status": "Meeting",
                     "color": "#ff3333"
                 });
             $.ajax({
@@ -100,7 +117,8 @@
 <body onload="init()">
     <div id="main-content">
         <p><button type="button" class="btn btn-success setFree">Free</button></p>
-        <p><button type="button" class="btn btn-danger setBusy">Busy</button></p>
+        <p><button type="button" class="btn btn-danger setBusy">Busy</button>
+            <button type="button" class="btn btn-danger setMeeting">Meeting</button></p>
         <p><button type="button" class="btn btn-primary" onclick="showCustomModal()">Custom</button></p>
         <p>Current status:<div id="current-status" class="curStatus"></div></p>
     </div>
